@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semáforo</title>
+    <style>
+        img {
+            max-width: 300px;
+            height: auto;
+            align-items: center;
+        }
+        body{
+            background-color: bisque;
+
+        }
+        h1{
+            text-align: center;
+        }
+        img{
+        text-align: center ;
+        }
+    </style>
+</head>
+<body>
+    <h1>Semáforo</h1>
+    <img id="imagem" src="semaforo_verde (1).png" alt="Imagem do Semáforo">
+    
+    <br>
+    <button onclick="mudarFoto('verde')">Verde</button>
+    <button onclick="mudarFoto('amarelo')">Amarelo</button>
+    <button onclick="mudarFoto('vermelho')">Vermelho</button>
+    <button onclick="iniciarAutomatico()">Automático</button>
+
+    <script>
+        const imagens = {
+            verde: "semaforo_verde (1).png",
+            amarelo: "semaforo_amarelo.png",
+            vermelho: "semaforo_vermelho.png",
+        };
+
+        let intervalo; // Para armazenar o ID do setInterval
+
+        // Função para mudar a imagem com base no botão pressionado
+        function mudarFoto(cor) {
+            clearInterval(intervalo); // Para caso esteja em automático
+            document.getElementById("imagem").src = imagens[cor]; // Altera a fonte da imagem
+        }
+
+        // Função para iniciar o semáforo automático
+        function iniciarAutomatico() {
+            clearInterval(intervalo); // Para qualquer intervalo anterior
+            let cores = ['vermelho', 'amarelo', 'verde'];
+            let indice = 0;
+
+            intervalo = setInterval(() => {
+                document.getElementById("imagem").src = imagens[cores[indice]];
+                indice = (indice + 1) % cores.length; // Volta ao início do array
+            }, 1000); // Muda a cada 1 segundo (1000 milissegundos)
+        }
+    </script>
+</body>
+</html>
