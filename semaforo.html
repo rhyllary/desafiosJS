@@ -27,7 +27,7 @@
 </head>
 <body>
     <h1>Semáforo</h1>
-    <img id="imagem" src="semaforo_verde (1).png" alt="Imagem do Semáforo">
+    <img id="imagem" src="imagens/semaforo_verde (1).png" alt="Imagem do Semáforo">
     
     <br>
     <button onclick="mudarFoto('verde')">Verde</button>
@@ -36,10 +36,11 @@
     <button onclick="iniciarAutomatico()">Automático</button>
 
     <script>
+        //está puxando as imagens 
         const imagens = {
-            verde: "semaforo_verde (1).png",
-            amarelo: "semaforo_amarelo.png",
-            vermelho: "semaforo_vermelho.png",
+            verde: "imagens/semaforo_verde (1).png",
+            amarelo: "imagens/semaforo_amarelo.png",
+            vermelho: "imagens/semaforo_vermelho.png",
         };
 
         let intervalo; // Para armazenar o ID do setInterval
@@ -50,7 +51,7 @@
             document.getElementById("imagem").src = imagens[cor]; // Altera a fonte da imagem
         }
 
-        // Função para iniciar o semáforo automático
+        // Função para iniciar o semáforo automático onde vai mudar a cor
         function iniciarAutomatico() {
             clearInterval(intervalo); // Para qualquer intervalo anterior
             let cores = ['vermelho', 'amarelo', 'verde'];
